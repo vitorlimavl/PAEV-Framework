@@ -22,11 +22,11 @@
 
 ## What is PAEV?
 
-PAEV is a four-step protocol for structuring technical conversations — particularly when something doesn't add up and you need to talk to a stakeholder about it.
+PAEV is a four-step protocol for structuring technical conversations - particularly when something doesn't add up and you need to talk to a stakeholder about it.
 
 It was created from a recurring frustration: technical teams spend enormous amounts of time resolving conflicts that don't come from a lack of information, but from misalignment in interpretation. Two dashboards show different revenue. A field arrives empty. A KPI definition is contested.
 
-Most communication frameworks (SCQA, SCR, Pyramid Principle) optimize for **persuasion** — you have the answer, and you want to convince the audience.
+Most communication frameworks (SCQA, SCR, Pyramid Principle) optimize for **persuasion** - you have the answer, and you want to convince the audience.
 
 PAEV optimizes for something different: **collaborative alignment**. You have a diagnosis, but the final answer belongs to whoever owns the business rule.
 
@@ -51,7 +51,7 @@ After years leading data and analytics teams, I noticed the same pattern over an
 
 - A discrepancy is found in a metric.
 - Someone raises it in a meeting.
-- The phrasing sounds accusatory — even when no one intended it.
+- The phrasing sounds accusatory - even when no one intended it.
 - The business team gets defensive.
 - The conversation turns into a search for who's at fault.
 - The actual rule never gets defined.
@@ -65,7 +65,7 @@ PAEV is the structure I started using to fix this. After enough times of it work
 
 ## The four stages
 
-### **P** — Problem
+### **P** - Problem
 > State the observable issue. No interpretation, no blame, just the fact.
 
 The audience needs to understand *what* is happening before they hear *why* you think it's happening.
@@ -73,21 +73,21 @@ The audience needs to understand *what* is happening before they hear *why* you 
 **Good:** *"47 orders arrived without a CPF field in the last 15 days."*
 **Bad:** *"Someone messed up the validation and orders are coming through broken."*
 
-### **A** — Analysis
+### **A** - Analysis
 > Show how you investigated and what the technical interpretation is.
 
 This is where you demonstrate that you've done the work. Analysis converts a complaint into a diagnosis.
 
 **Good:** *"Our investigation shows the field isn't being validated as required at submission time. Since CPF is needed for invoicing, this may be generating invalid orders downstream."*
 
-### **E** — Evidence
+### **E** - Evidence
 > Back the analysis with measurable information.
 
 Numbers, logs, queries, screenshots, examples. Evidence shifts the conversation from opinion to diagnosis.
 
 **Good:** *"In October, the dashboard showed R$2.3M and the financial report R$1.9M. The R$400K gap corresponds exactly to orders placed in October but paid in November."*
 
-### **V** — Validation
+### **V** - Validation
 > Hand the decision back. Ask the question that closes the loop.
 
 This is the step that doesn't exist in other frameworks. Instead of imposing a conclusion, you return ownership to whoever has the authority to define the rule.
@@ -103,10 +103,10 @@ You don't install PAEV. You use it the next time you need to raise a technical i
 The minimal template, in any channel (Slack, email, meeting, ticket):
 
 ```
-P — [What is observable and specific]
-A — [How you investigated it and what you think]
-E — [What data backs that up]
-V — [The exact question you need answered, or the confirmation you need]
+P - [What is observable and specific]
+A - [How you investigated it and what you think]
+E - [What data backs that up]
+V - [The exact question you need answered, or the confirmation you need]
 ```
 
 That's it. Four lines, four minutes to write, and the conversation changes.
@@ -115,7 +115,7 @@ That's it. Four lines, four minutes to write, and the conversation changes.
 
 ## Examples
 
-### Example 1 — Revenue discrepancy in a data platform
+### Example 1 - Revenue discrepancy in a data platform
 
 **Without PAEV** *(typical failure mode)*
 
@@ -125,17 +125,17 @@ That's it. Four lines, four minutes to write, and the conversation changes.
 
 **With PAEV**
 
-> **P** — A discrepancy was identified between the sales dashboard and the monthly financial report.
+> **P** - A discrepancy was identified between the sales dashboard and the monthly financial report.
 >
-> **A** — The dashboard calculates revenue based on order date, while the financial report uses payment confirmation date.
+> **A** - The dashboard calculates revenue based on order date, while the financial report uses payment confirmation date.
 >
-> **E** — October: R$2.3M vs R$1.9M. The R$400K gap matches exactly the orders placed in October but paid in November.
+> **E** - October: R$2.3M vs R$1.9M. The R$400K gap matches exactly the orders placed in October but paid in November.
 >
-> **V** — Should revenue be recognized by order date or by payment date? That definition lets us align all downstream systems.
+> **V** - Should revenue be recognized by order date or by payment date? That definition lets us align all downstream systems.
 
 *Outcome: business owns the rule, all reports get aligned, the problem doesn't come back.*
 
-### Example 2 — Missing field in an integration
+### Example 2 - Missing field in an integration
 
 **Without PAEV**
 
@@ -143,23 +143,23 @@ That's it. Four lines, four minutes to write, and the conversation changes.
 
 **With PAEV**
 
-> **P** — Orders are arriving in the system without a CPF value.
+> **P** - Orders are arriving in the system without a CPF value.
 >
-> **A** — The field isn't being validated as required at submission time. Since CPF is required for invoicing, this may be generating invalid orders downstream.
+> **A** - The field isn't being validated as required at submission time. Since CPF is required for invoicing, this may be generating invalid orders downstream.
 >
-> **E** — 47 orders in the last 2 weeks have arrived with this field empty. Report available on request.
+> **E** - 47 orders in the last 2 weeks have arrived with this field empty. Report available on request.
 >
-> **V** — Should CPF be required in all cases, or is there a business exception we haven't mapped yet?
+> **V** - Should CPF be required in all cases, or is there a business exception we haven't mapped yet?
 
-### Example 3 — KPI definition conflict
+### Example 3 - KPI definition conflict
 
-> **P** — Marketing's "active user" count differs from Product's by ~12% every week.
+> **P** - Marketing's "active user" count differs from Product's by ~12% every week.
 >
-> **A** — Marketing counts any user with a session in the period. Product requires at least one meaningful action (defined by the events table). Both definitions are internally consistent.
+> **A** - Marketing counts any user with a session in the period. Product requires at least one meaningful action (defined by the events table). Both definitions are internally consistent.
 >
-> **E** — Week of Nov 11: Marketing = 84,302; Product = 74,118. The 10,184 delta corresponds entirely to users who opened the app but didn't complete a tracked action.
+> **E** - Week of Nov 11: Marketing = 84,302; Product = 74,118. The 10,184 delta corresponds entirely to users who opened the app but didn't complete a tracked action.
 >
-> **V** — Which definition should be the company-wide "active user"? Or should we maintain both with distinct names (e.g., *sessions* vs *engaged users*)?
+> **V** - Which definition should be the company-wide "active user"? Or should we maintain both with distinct names (e.g., *sessions* vs *engaged users*)?
 
 ---
 
@@ -265,7 +265,7 @@ Happy to go deeper on any of the points.
 No. It was developed in data and analytics contexts, but the structure works for any technical discipline that interfaces with business stakeholders: software engineering, infrastructure, security, QA, ML.
 
 **Can I use it internally too, with my own team?**
-Yes — particularly in 1-on-1s and incident postmortems. The Validation step works just as well when the "rule owner" is another engineer or a tech lead.
+Yes - particularly in 1-on-1s and incident postmortems. The Validation step works just as well when the "rule owner" is another engineer or a tech lead.
 
 **Is there a tool or library?**
 Not yet. PAEV is a protocol, not software. If you want to build a Slack bot, a ticket template, or an LLM prompt around it, you're welcome to. See [Contributing](#-contributing).
@@ -328,7 +328,7 @@ If you reference PAEV in academic or professional work:
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
-You are free to share, adapt, and use the framework in any context — including commercial — as long as appropriate credit is given.
+You are free to share, adapt, and use the framework in any context - including commercial - as long as appropriate credit is given.
 
 ---
 
